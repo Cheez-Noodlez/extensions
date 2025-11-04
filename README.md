@@ -1,1 +1,48 @@
-🧩 Scratch Game Sidebar Chrome ExtensionA minimalist Chrome extension that provides a dedicated side panel for running Scratch projects. Easily load any project by its ID or full embed URL for distraction-free gameplay and quick access.🚀 Installation (Developer Channel Deployment)This guide details the process of deploying the extension directly from the source files using Chrome's Developer Mode.PrerequisitesYou must have the following three files saved together in a single, dedicated folder (the "root directory"):manifest.jsonbackground.jssidebar.htmlSteps1. Access Extension ManagementNavigate to the Chrome extension settings page:In the Chrome address bar, enter the following URL:chrome://extensions/Press Enter.2. Activate Developer ModeThis step enables the browser to load extensions directly from local files:On the Extension Management page, locate the "Developer mode" toggle (typically in the top-right corner).Click the toggle to activate ON.3. Load the Unpacked DirectoryLoad the extension files into the browser:Click the "Load unpacked" button that appears in the top-left corner.Navigate to and select the root directory containing the extension files.Click "Select Folder."✨ Confirmation: A new extension card titled "Scratch Game Sidebar" will now be visible, confirming successful installation.🛠️ Usage GuideTo launch and configure the sidebar:Click the blue and white puzzle piece icon (🧩) next to your browser's address bar.Select "Scratch Game Sidebar" from the menu to open the side panel.Load a project by entering either the numeric Project ID or the full embed URL into the input field.Click the Load button to refresh the game player.🛑 Troubleshooting: Developer Mode DisabledIf the "Developer mode" toggle is locked, grayed out, or immediately reverts to OFF:This indicates a security or enterprise policy is enforced by a network administrator.Action Plan: Use a personal device, or contact your administrator to request an exception or installation via an approved method.
+# 🚀 How to Load Unpacked Chrome Extensions (Developer Mode)
+
+This guide provides the necessary steps to install any Chrome extension directly from its source code (unpacked directory). This is the standard method used by developers and for testing custom extensions before publishing to the Chrome Web Store.
+
+# 🚀 Installation (Developer Channel Deployment)
+
+Prerequisites
+
+You must have the extension's source files saved together in a single, dedicated folder (the "root directory"). This directory must contain the manifest.json file.
+
+Steps
+
+1. Access Extension Management
+
+Navigate to the Chrome extension settings page:
+
+In the Chrome address bar, enter the following URL:
+chrome://extensions/
+
+Press Enter.
+
+2. Activate Developer Mode
+
+This step enables the browser to load extensions directly from local files:
+
+On the Extension Management page, locate the "Developer mode" toggle (typically in the top-right corner).
+
+Click the toggle to activate ON.
+
+3. Load the Unpacked Directory
+
+Load the extension files into the browser:
+
+Click the "Load unpacked" button that appears in the top-left corner.
+
+Navigate to and select the root directory containing the extension files.
+
+Click "Select Folder."
+
+# ✨ Confirmation: A new card for your extension will now appear on the management page, confirming successful installation.
+
+# 🛑 Troubleshooting: Developer Mode Disabled
+
+If the "Developer mode" toggle is locked, grayed out, or immediately reverts to OFF:
+
+This indicates a security or enterprise policy is enforced by a network administrator (e.g., school or corporate device).
+
+Action Plan: You will need to use a personal device or contact your system administrator to request permission to load unpacked extensions.
