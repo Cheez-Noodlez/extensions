@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scratch Sidebar</title>
+    <style>
+        /* Base styles for the entire sidebar */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f7f9;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden; /* Hide scrollbar in the main body */
+        }
+
+        /* Header for controls */
+        .header {
+            padding: 10px;
+            background-color: #4d97ff; /* Scratch blue */
+            color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        /* Input group styling */
+        .input-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .input-group input {
+            flex-grow: 1;
+            padding: 6px 10px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .input-group button {
+            background-color: #0e800d; /* Green button */
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            font-weight: 600;
+        }
+
+        .input-group button:hover {
+            background-color: #0a6c08;
+        }
+
+        /* Game area (Iframe container) */
+        .game-container {
+            flex-grow: 1;
+            /* Ensure the container uses all available space */
+            display: flex; 
+            flex-direction: column;
+            overflow: auto; /* Allow scrolling for the game content */
+        }
+
+        /* Iframe styling */
+        #scratch-player {
+            width: 100%;
+            /* Scratch projects are typically 480x360 (4:3 ratio). This uses 100% of container width. */
+            height: 100%; 
+            border: none;
+        }
+    </style>
+    <!-- Include Inter font -->
+    <script src="https://cdn.tailwindcss.com"></script> 
+</head>
+<body>
+
+    <div class="header">
+        <div style="font-size: 16px; font-weight: 700;">Scratch Game Sidebar</div>
+        <div class="input-group">
+            <input type="text" id="projectUrl" placeholder="ID or url">
+            <button id="loadButton">Load</button>
+        </div>
+    </div>
+
+    <div class="game-container">
+        <!-- The Scratch player will be loaded here -->
+        <!-- Default project: "Cat Scratch" (ID 10128407) -->
+        <iframe id="scratch-player" src="https://scratch.mit.edu/projects/10128407/embed" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen></iframe>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const projectUrlInput = document.getElementById('projectUrl');
+            const loadButton = document.getElementById('loadButton');
+            const scratchPlayer = document.getElementById('scratch-player');
+
+            // Default value is the full embed URL of the example project.
+            projectUrlInput.value = 'https://scratch.mit.edu/projects/10128407/embed';
+
+            /**
+             * Updates the iframe source to load a new project from a URL or ID.
+             * @param {string} input - The full embed URL or the Project ID.
+             */
+            function loadScratchProject(input) {
+                const trimmedInput = input.trim();
+                let urlToLoad = '';
+
+                // 1. Check if it's a full URL (starts with http)
+                if (trimmedInput.startsWith('http')) {
+                    urlToLoad = trimmedInput;
+                } 
+                // 2. Check if it's a numeric ID
+                else if (/^\d+$/.test(trimmedInput)) {
+                    // Construct the standard Scratch embed URL from the ID
+                    urlToLoad = `https://scratch.mit.edu/projects/${trimmedInput}/embed`;
+                } else {
+                    console.error("Invalid input. Please enter a valid URL or a numeric Project ID.");
+                    // In a real app, you might show a visual error message here instead of just logging.
+                    return;
+                }
+
+                scratchPlayer.src = urlToLoad;
+                console.log(`Loading project from: ${urlToLoad}`);
+            }
+
+            // Event listener for the Load button
+            loadButton.addEventListener('click', () => {
+                const input = projectUrlInput.value;
+                loadScratchProject(input);
+            });
+
+            // Allow hitting Enter key in the input field
+            projectUrlInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    loadButton.click();
+                }
+            });
+
+            // Focus the input when the panel opens (optional, but good UX)
+            projectUrlInput.focus();
+        });
+    </script>
+</body>
+</html>
