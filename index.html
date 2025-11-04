@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Load Unpacked Chrome Extensions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Use Inter font for clean readability */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f7f7;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen p-4 sm:p-8">
+
+    <div class="max-w-4xl mx-auto bg-white shadow-xl rounded-2xl overflow-hidden">
+        <header class="bg-indigo-600 text-white p-6 sm:p-8">
+            <h1 class="text-3xl sm:text-4xl font-extrabold flex items-center">
+                <span class="mr-3">🚀</span>
+                How to Load Unpacked Chrome Extensions (Developer Mode)
+            </h1>
+            <p class="mt-2 text-indigo-200 text-lg">
+                This guide provides the necessary steps to install any Chrome extension directly from its source code.
+            </p>
+        </header>
+
+        <main class="p-6 sm:p-8 space-y-8">
+
+            <!-- Installation Section -->
+            <section class="border-b pb-6 border-gray-200">
+                <h2 class="text-3xl font-bold text-gray-800 flex items-center">
+                    <span class="mr-2 text-indigo-500">🚀</span>
+                    Installation (Developer Channel Deployment)
+                </h2>
+
+                <!-- Prerequisites -->
+                <div class="mt-4 p-4 bg-yellow-50 border-l-4 border-yellow-500 rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Prerequisites</h3>
+                    <p class="text-gray-600">
+                        You must have the extension's source files saved together in a single, dedicated folder (the "root directory"). This directory must contain the **<code>manifest.json</code>** file.
+                    </p>
+                </div>
+
+                <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-4">Steps</h3>
+
+                <ol class="space-y-6">
+                    <!-- Step 1 -->
+                    <li class="p-4 border border-gray-100 rounded-lg bg-gray-50 shadow-sm">
+                        <h4 class="text-lg font-bold text-indigo-600">1. Access Extension Management</h4>
+                        <p class="mt-1 text-gray-700">Navigate to the Chrome extension settings page:</p>
+                        <div class="mt-2 bg-gray-200 p-3 rounded-md text-sm font-mono overflow-x-auto">
+                            In the Chrome address bar, enter the following URL:
+                            <code class="block mt-1 text-gray-800">chrome://extensions/</code>
+                        </div>
+                    </li>
+
+                    <!-- Step 2 -->
+                    <li class="p-4 border border-gray-100 rounded-lg bg-gray-50 shadow-sm">
+                        <h4 class="text-lg font-bold text-indigo-600">2. Activate Developer Mode</h4>
+                        <p class="mt-1 text-gray-700">This step enables the browser to load extensions directly from local files:</p>
+                        <ul class="list-disc list-inside mt-2 space-y-1 text-gray-600">
+                            <li>On the Extension Management page, locate the **"Developer mode"** toggle (typically in the top-right corner).</li>
+                            <li><strong class="text-green-600">Click the toggle to activate ON.</strong></li>
+                        </ul>
+                    </li>
+
+                    <!-- Step 3 -->
+                    <li class="p-4 border border-gray-100 rounded-lg bg-gray-50 shadow-sm">
+                        <h4 class="text-lg font-bold text-indigo-600">3. Load the Unpacked Directory</h4>
+                        <p class="mt-1 text-gray-700">Load the extension files into the browser:</p>
+                        <ul class="list-disc list-inside mt-2 space-y-1 text-gray-600">
+                            <li>Click the **"Load unpacked"** button that appears in the top-left corner.</li>
+                            <li>Navigate to and **select the root directory** containing the extension files.</li>
+                            <li>Click **"Select Folder."**</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <!-- Confirmation -->
+                <div class="mt-6 p-4 bg-green-50 border-l-4 border-green-500 rounded-lg">
+                    <p class="text-gray-700 text-lg font-medium">
+                        <strong class="text-green-600">✨ Confirmation:</strong> A new card for your extension will now appear on the management page, confirming successful installation.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Troubleshooting Section -->
+            <section class="pt-4">
+                <h2 class="text-3xl font-bold text-gray-800 flex items-center">
+                    <span class="mr-2 text-red-500">🛑</span>
+                    Troubleshooting: Developer Mode Disabled
+                </h2>
+
+                <div class="mt-4 p-5 bg-red-50 border-l-4 border-red-600 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-red-800 mb-3">Symptom</h3>
+                    <p class="text-red-700">
+                        If the **"Developer mode"** toggle is locked, grayed out, or immediately reverts to OFF.
+                    </p>
+                    <h3 class="text-xl font-semibold text-red-800 mt-4 mb-3">Cause & Action Plan</h3>
+                    <ul class="list-disc list-outside ml-5 space-y-2 text-red-700">
+                        <li>This indicates a security or enterprise policy is enforced by a network administrator (e.g., school or corporate device).</li>
+                        <li>**Action Plan:** You will need to use a personal device or contact your system administrator to request permission to load unpacked extensions.</li>
+                    </ul>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>
